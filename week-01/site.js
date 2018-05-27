@@ -101,7 +101,7 @@ members.addEventListener('click', function(e) {
 
         //Insert datapoints into template
         name.textContent = profile_json.name;
-          if (profile_json.name === false)
+          if (profile_json.name === null)
             {
               name.textContent = profile_json.login;
             }
