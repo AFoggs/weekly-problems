@@ -46,6 +46,7 @@ members.addEventListener('click', function(e) {
   // properties and methods it responds to.
   target = e.target;
 
+
   // We're only interested in clicks on `<a>` elements:
   if (e.target.nodeName.toLowerCase() == 'a') {
     // Don't let the web browser follow the link
@@ -55,7 +56,7 @@ members.addEventListener('click', function(e) {
 
     // TODO: Somehow isolate the last chunk of the GitHub profile URL, which contains the username
     // https://github.com/<username>. The full URL is a string at `e.target.href`:
-    username = e.target.nodeName.slice(19, e.target.nodeName.length);
+    username = e.target.href.slice(19, e.target.href.length);
 
     // Diagnostic: log the username value
     console.log('Username value:', username);
@@ -73,7 +74,7 @@ members.addEventListener('click', function(e) {
 
     // This block commented with stars so you can get things above working first:
 
-    /*
+
     fetch(request_url)
       .then(function(data) {
         // Parse the returned data as JSON:
@@ -83,10 +84,35 @@ members.addEventListener('click', function(e) {
         // Diagnostic; output the login value
         console.log('Login', profile_json.login);
 
+        //Ensure other endpoints work.
+        console.log(profile_json.name);
+        console.log(profile_json.public_repos);
+        console.log(profile_json.avatar_url);
+
         // TODO: Insert the parts of the JSON data we want in the `template` HTML and
         // append it to the profile `<blockquote id="profile">`
         // TODO: Display the username (`login`) in case a team member has not set a profile name
+        var block = document.querySelector('#profile');
+        var temp = document.importNode(template.content, true);
+        //Set variables for ids
+        var name = temp.querySelector('#name');
+        var pubRepos = temp.querySelector('#public_repos');
+        var avatar = temp.querySelector('#avatar_url');
+
+        //Insert datapoints into template
+        name.textContent = profile_json.name;
+          if (profile_json.name === false)
+            {
+              name.textContent = profile_json.login;
+            }
+        pubRepos.textContent = profile_json.public_repos;
+        avatar.src = (profile_json.avatar_url);
+
+        //Append text
+        block.appendChild(temp);
+
+        //
       });
-    */
+
   }
 });
