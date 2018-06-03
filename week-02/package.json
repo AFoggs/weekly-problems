@@ -1,0 +1,23 @@
+{
+  "name": "week-02",
+  "version": "1.0.0",
+  "description": "Week 2 node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFoggs/weekly-problems.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AFoggs/weekly-problems/issues"
+  },
+  "homepage": "https://github.com/AFoggs/weekly-problems#readme",
+  "dependencies": {
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
