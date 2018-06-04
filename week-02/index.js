@@ -21,7 +21,23 @@ req(options)
   .then(function(profile){
     // TODO: Handle the returned JSON data and write it to a file called
     // `response.json` in your `week-two/` directory
-    console.log(profile);
+    //display data for verification.
+    console.log(profile)
+
+    //Stringfy data
+
+    profile =  JSON.stringify(profile, null, 2);
+
+    //write data to response json file
+    fs.writeFile('response.json', profile, (err) =>{
+      if (err) {
+        throw err
+      }
+      else {
+        console.log("Your Profile has been saved")
+      }
+    }
+  )
   })
 
   .catch(function(err) {
