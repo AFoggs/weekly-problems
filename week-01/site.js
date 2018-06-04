@@ -1,29 +1,20 @@
-/*
-
-This first Weekly Problem drops you right into HTML & JavaScript.
-
-The `index.html` file, which you do not need to edit, contains an unordered list of usernames
-linked to GitHub profiles for everyone in the class. It also uses a tag you might not have seen
-before: `<template>`, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
-
-You'll use native JavaScript to listen for a click event on any one of those links, prevent the
-default link-following behavior, and hit the GitHub API to return JSON data for the profile whose
-link a user clicked. You'll then display the data as set forth in the `<template>` tag at the bottom
-of the HTML file, and append it to the `<blockquote>` element.
-
-For example, Stolley's main GitHub profile is a JSON object at this API endpoint:
-https://api.github.com/users/karlstolley
-
-I've sketched out some starter portions of the code below. Be sure to work on this yourself, and
-discuss your work--and the places that you get stuck--on Basecamp as you're working on the
-problem. Note: to keep this as backward-compatibile as possible, I'm using `var` and no fancy
-ES6 stuff.
-
-Finally, be sure to run `http-server` so you're serving this at `localhost:8080`--if you choose
-File > Open, you will not be able to run requests with Fetch. Be sure also that you have your
-JavaScript console open so you can benefit from calls to `console.log()` and other diagnostics.
-
-*/
+// This first Weekly Problem drops you right into HTML & JavaScript.
+// The `index.html` file, which you do not need to edit, contains an unordered list of usernames
+// linked to GitHub profiles for everyone in the class. It also uses a tag you might not have seen
+// before: `<template>`, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+// You'll use native JavaScript to listen for a click event on any one of those links, prevent the
+// default link-following behavior, and hit the GitHub API to return JSON data for the profile whose
+// link a user clicked. You'll then display the data as set forth in the `<template>` tag at the bottom
+// of the HTML file, and append it to the `<blockquote>` element.
+// For example, Stolley's main GitHub profile is a JSON object at this API endpoint:
+// https://api.github.com/users/karlstolley
+// I've sketched out some starter portions of the code below. Be sure to work on this yourself, and
+// discuss your work--and the places that you get stuck--on Basecamp as you're working on the
+// problem. Note: to keep this as backward-compatibile as possible, I'm using `var` and no fancy
+// ES6 stuff.
+// Finally, be sure to run `http-server` so you're serving this at `localhost:8080`--if you choose
+// File > Open, you will not be able to run requests with Fetch. Be sure also that you have your
+// JavaScript console open so you can benefit from calls to `console.log()` and other diagnostics.
 
 // Grab the members element
 var members = document.getElementById('members');
@@ -84,7 +75,7 @@ members.addEventListener('click', function(e) {
         // Diagnostic; output the login value
         console.log('Login', profile_json.login);
 
-        //Ensure other endpoints work.
+        // Ensure other endpoints work.
         console.log(profile_json.name);
         console.log(profile_json.public_repos);
         console.log(profile_json.avatar_url);
@@ -94,21 +85,21 @@ members.addEventListener('click', function(e) {
         // TODO: Display the username (`login`) in case a team member has not set a profile name
         var block = document.querySelector('#profile');
         var temp = document.importNode(template.content, true);
-        //Set variables for ids
+        // Set variables for ids
         var name = temp.querySelector('#name');
         var pubRepos = temp.querySelector('#public_repos');
         var avatar = temp.querySelector('#avatar_url');
 
-        //Insert datapoints into template
+        // Insert datapoints into template
         name.textContent = profile_json.name;
-          if (profile_json.name === null)
-            {
-              name.textContent = profile_json.login;
-            }
+        if (profile_json.name === null)
+        {
+          name.textContent = profile_json.login;
+        }
         pubRepos.textContent = profile_json.public_repos;
         avatar.src = (profile_json.avatar_url);
 
-        //Append text
+        // Append text
         block.appendChild(temp);
 
         //
