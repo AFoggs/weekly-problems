@@ -15,7 +15,7 @@ case, the endpoints for GitHub Issues: <https://developer.github.com/v3/issues/>
 As always, post to Basecamp as you’re working on this problem.
 
 
-###Endpoint 1: courses
+**Endpoint 1: courses**
 
 For this first endpoint, I would be grabbing relevant course data from the end point.
 I've included the metadata, as [David Delgado](https://github.com/ddelgad5) has because
