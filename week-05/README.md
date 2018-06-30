@@ -49,7 +49,7 @@ GET /course
     {
         "title": "Sociology of Space",
         "location": "Wishnick Hall 184",
-        "instructor": "Ullica Segerstrale ",
+        "instructor": "Ullica Segerstrale",
         "department": "SOC",
         "description": "An introduction to the usage of space and its effect on humans."
         },
@@ -57,4 +57,70 @@ GET /course
     }
   ]
 }
+```
+**Endpoint 2: instructor**
+
+With this endpoint, I included some basic data that most people would want on a professor,
+but I also included a section for research, as sometimes professors are performing
+research that students may be interested in. This way, users are able to figure out not only
+the courses that an instructor teaches, but also what research they are interested in.
+
+```
+GET /instructor
+{
+  "metadata" {
+    "semester": "Fall, 2018"
+    "last-update": "06-25-2018 18:40:38"
+  },
+  "data" [
+  {
+    "type": "professor",,
+    "id": "usegerstrale",
+    "department": "SOC",
+    "email": "ullica.segerstrale@gmail.com",
+    "courses" [
+    {
+      "title": "Sociology of Space",
+      "crn":184536,
+      "link": "/course/184536"
+        }
+      ],
+    "research" [
+    {
+        "topic": "Influence of room arrangement on mood",
+        "sponsor": "Gerald Doyle",
+        "run-time": "Fall 2018-Spring 2019"
+        }
+      ]
+    },
+    {
+      "type": "professor",,
+      "id": "kstolley",
+      "department": "ITM",
+      "email": "karl.stolley@gmail.com",
+      "courses" [
+      {
+        "title": "Data APIs",
+        "crn":193843 ,
+        "link": "/course/193843"
+        }
+      ],
+      "research" [
+      {
+          "topic": "Agile API Deployment: Improving UI/UX Faster",
+          "sponsor": "Ray Trygstad",
+          "run-time": "Fall 2018-Fall 2019"
+          }
+        ]
+    },
+  ]
+}
+```
+
+**Endpoint 3: student**
+
+```
+GET /student
+
+
 ```
