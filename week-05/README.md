@@ -119,8 +119,56 @@ GET /instructor
 
 **Endpoint 3: student**
 
+With this one, I tried to make the endpoint a little more intricate, documenting
+more information on the student than one would perhaps like, but also wouldn't
+be unreasonable to have. While not directly relevant to courses, this information
+would be useful in running analysis to see what members of which organizations take
+which kinds of classes in order to better enable course recruitment and also to
+improve upon course structure for each new semester.
+
 ```
 GET /student
 
-
+{
+  "metadata" {
+    "semester": "Fall, 2018"
+    "last-update": "06-25-2018 18:40:38"
+  },
+  "data" [
+  {
+    "type": "student",
+    "id": "193843",
+    "name": "Antoine Foggs",
+    "major": "ITM",
+    "program": "Co-Terminal: School of Applied Technology",
+    "Status": "Fourth Year: Undergraduate",
+    "courses" [
+      {
+        "title": "Sociology of Space",
+        "crn":184536,
+        "link": "/course/184536"
+      },
+      {
+        "title": "Data APIs",
+        "crn":193843 ,
+        "link": "/course/193843"
+      }
+      ],
+    "organizations" [
+      {
+        "code": "05885"
+        "name": "TEDxIIT",
+        "position": "Vice President of Communications",
+        "join-date": "02-06-2018"
+      },
+      {
+        "code": "05798"
+        "name": "Black Student Union",
+        "position": "Member",
+        "join-date": "09-23-2015"
+      },
+      ]
+    },
+  ]
+}
 ```
